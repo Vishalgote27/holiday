@@ -4,6 +4,8 @@ const cors = require("cors")
 const cookiesParser = require("cookie-parser")
 require("dotenv").config({ path: "./.env" })
 
+const path = require("path")
+
 const app = express()
 
 //middlewares
@@ -29,7 +31,8 @@ app.use("/api/order", require("./routes/orderRoute"))
 
 //404
 app.use("*", (req, res) => {
-    res.status(404).json({ message: "Resource Not Found" })
+    // res.status(404).json({ message: "Resource Not Found" })
+    res.sendFile(path.join(__dirname, "dist", "index.html"))
 })
 
 
