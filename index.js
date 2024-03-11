@@ -9,10 +9,12 @@ const app = express()
 //middlewares
 app.use(express.json())
 app.use(cookiesParser())
+app.use(express.static("dist"))
 app.use(express.static("uploads"))
 app.use(cors(
     {
-        origin: "http://localhost:5173",
+        // origin: "http://localhost:5173",
+        origin: "https://holiday-1.onrender.com",
         credentials: true
     }
 ))
